@@ -1,0 +1,36 @@
+plugins {
+    id 'net.saliman.cobertura' version '2.5.4' 
+}
+
+
+apply plugin: 'java'
+apply plugin: 'findbugs'
+
+repositories {
+    jcenter()
+}
+
+tasks.withType(FindBugs){
+  reports{
+    xml.enabled false
+    html.enabled true
+  }
+}
+
+findbugs{
+    ignoreFailures = true
+}
+cobertura {
+    coverageCheckBranchRate = 80
+    coverageCheckHaltOnFailure = true
+    
+}
+
+
+dependencies {
+
+    testImplementation 'junit:junit:4.12'
+    testRuntime 'org.slf4j:slf4j-api:1.7.10'
+    
+}
+

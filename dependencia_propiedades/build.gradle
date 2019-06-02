@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'simple.Main'
+
+archivesBaseName = 'app' 
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+   commonsManthVersion = '3.6.1'
+   commonsLangVersion = '3.8'
+}
+
+dependencies {
+   implementation "org.apache.commons:commons-math3:${commonsManthVersion}"
+   runtimeOnly "org.apache.commons:commons-lang3:${commonsLangVersion}"  
+ }
+ 
